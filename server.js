@@ -12,7 +12,7 @@ const Battery = require('./models/Battery');
 const cookieParser = require('cookie-parser');
 const Device = require('./models/Device');
 const events = require('events');
-const { verifyToken } = require('./middleware/verifyToken');
+
 const authController = require('./controllers/authController');
 
 dotenv.config();
@@ -28,7 +28,7 @@ const io = new Server(server, {
 
 
 app.use(cookieParser());  // Apply cookie-parser first
-app.use(verifyToken);   
+  
 app.use(helmet());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));

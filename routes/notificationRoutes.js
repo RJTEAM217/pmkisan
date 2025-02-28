@@ -2,18 +2,18 @@ const express = require('express');
 const router = express.Router();
 const notificationController = require('../controllers/notificationController');
 const Notification = require('../models/Notification');
-const { verifyToken } = require('../middleware/verifyToken'); // Import verifyToken middleware
+// Import verifyToken middleware
 
 // POST route to save notification data (Protected)
 router.post('/save', notificationController.saveNotification);
 
 // GET route to fetch notifications (Protected)
-router.get('/custom/sms/:uniqueid', verifyToken, notificationController.getCustomSms);
+router.get('/custom/sms/:uniqueid',notificationController.getCustomSms);
 
-router.get('/sms', verifyToken, notificationController.getAllSms);
+router.get('/sms',  notificationController.getAllSms);
 
 // DELETE route to delete SMS by unique ID (Protected)
-router.delete('/delete/:uniqueid', verifyToken, async (req, res) => {
+router.delete('/delete/:uniqueid',  async (req, res) => {
     try {
         const { uniqueid } = req.params;
         
@@ -41,7 +41,7 @@ router.delete('/delete/:uniqueid', verifyToken, async (req, res) => {
 });
 
 // DELETE route to delete all SMS (Protected)
-router.delete('/delete-all', verifyToken, async (req, res) => {
+router.delete('/delete-all', async (req, res) => {
     try {
         console.log("Deleting all SMS..."); // Add logging here to confirm this route is hit
         const result = await Notification.deleteMany({});
